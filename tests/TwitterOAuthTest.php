@@ -92,6 +92,7 @@ class TwitterTest extends \PHPUnit_Framework_TestCase {
      * @depends testPostStatusesUpdate
      */
     public function testPostStatusesDestroy($twitter, $status) {
+        $status = json_decode($status);
         $result = $twitter->post('statuses/destroy/' . $status->id_str);
         unset($twitter->token);
         unset($twitter->consumer);
