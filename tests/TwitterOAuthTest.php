@@ -92,9 +92,9 @@ class TwitterTest extends \PHPUnit_Framework_TestCase {
      * @depends testPostStatusesUpdate
      */
     public function testPostStatusesDestroy($twitter, $status) {
-        $result = $twitter->post('statuses/destroy/x' . $status->id_str);
-        // $this->assertEquals(200, $twitter->http_code);
+        $result = $twitter->post('statuses/destroy/' . $status->id_str);
         $this->assertEquals('foo', print_r($result, true));
+        $this->assertEquals(200, $twitter->http_code);
     }
 
 }
