@@ -93,7 +93,9 @@ class TwitterTest extends \PHPUnit_Framework_TestCase {
      */
     public function testPostStatusesDestroy($twitter, $status) {
         $result = $twitter->post('statuses/destroy/' . $status->id_str);
-        $this->assertEquals(200, $twitter->http_code);
+        unset($twitter->token);
+        unset($twitter->consumer);
+        $this->assertEquals(200, print_r($twitter, true) . print_r($result, true));
     }
 
 }
